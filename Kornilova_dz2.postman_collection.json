@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "0fb930c3-3206-4cfa-9658-85ebc054772a",
+		"name": "QuotesAPI(Flask1)",
+		"description": "API запросы для курса Flask1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lesson01",
+			"item": [
+				{
+					"name": "Get a list of quotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/quotes",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes"
+							]
+						},
+						"description": "Получение списка цитат"
+					},
+					"response": []
+				},
+				{
+					"name": "Get the number of quotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/quotes_numbers",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes_numbers"
+							]
+						},
+						"description": "Прлучение количества цитат"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new quote",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"author\": \"Tom\",\n    \"text\": \"Toms quote\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/quotes",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes"
+							]
+						},
+						"description": "Создание новой цитаты"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit quote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"author\": \"Tom\",\n    \"text\": \"Toms quote\"\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/quotes/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes",
+								"1"
+							]
+						},
+						"description": "Редактирование цитаты с указанным id\nЕсли цитата с указаннм id не существует, то создаем новую"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete quote",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:5000/quotes/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes",
+								"1"
+							]
+						},
+						"description": "Удаление цитаты с id"
+					},
+					"response": []
+				},
+				{
+					"name": "filter_author_rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:5000/quotes/filter?author=Waldi Ravens3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"quotes",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "rate",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "author",
+									"value": "Waldi Ravens3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
