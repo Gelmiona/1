@@ -90,16 +90,17 @@ def delete_quote(quote_id):
 def filter_quote():
     data = request.args
     if 'author'in data:
-        quote = QuoteModel.query.filter_by(author=data['author']).first()
-        if quote is None:
+        quotes = QuoteModel.query.filter_by(author=data['author'])
+        if quotes is None:
             return f"Quote with {data['author']} not found", 404
-        return quote.to_dict(), 200
+        quotes_dict = [quote.to_dict()['text'] for quote in quotes]
+        return quotes_dict, 200
 
     if 'rate' in data:
         quotes = QuoteModel.query.filter_by(rate=data['rate'])
         if quotes is None:
-            return f"Quote with {data['author']} not found", 404
-        quotes_dict = [quote.to_dict() for quote in quotes]
+            return f"Quote with {data['rate']} not found", 404
+        quotes_dict = [quote.to_dict()['text']for quote in quotes]
         return quotes_dict, 200
 
 
