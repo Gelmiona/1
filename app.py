@@ -14,6 +14,8 @@ app.app_context().push()
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+# TODO: К проекту не подключены миграции, отсутствуется папка migrations
+
 class QuoteModel(db.Model):
    id = db.Column(db.Integer, primary_key=True)
    author = db.Column(db.String(32), unique=False)
@@ -69,6 +71,8 @@ def edit_quote(id):
         quote.text = quote_data['text']
     if 'author' in quote_data:
         quote.author = quote_data['author']
+         
+    # TODO: вариант с setattr() тут даже лучше(универсальнее и компактнее)
     # или можно так
     # for key, value in quote_data.items():
     #     setattr(quote, key, value)
